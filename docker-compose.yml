@@ -14,7 +14,7 @@ services:
       - ./datasets:/home/jovyan/work/datasets
       - ./outputs:/home/jovyan/work/outputs
       - conda_store:/opt/conda
-    command: start-notebook.sh --NotebookApp.ip=0.0.0.0 --NotebookApp.port=8888 --NotebookApp.notebook_dir=/home/jovyan/work
+    command: bash -c "pip install -r /home/jovyan/work/requirements.txt && start-notebook.sh --NotebookApp.ip=0.0.0.0 --NotebookApp.port=8888 --NotebookApp.notebook_dir=/home/jovyan/work"
     restart: unless-stopped
 
 volumes:
